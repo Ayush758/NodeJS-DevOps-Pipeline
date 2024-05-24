@@ -5,7 +5,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 // Checkout the source code from your repository
-                git 'https://github.com/Mahmoud-Sh3ban/NodeJS-DevOps-Pipeline.git'
+                git 'https://github.com/Ayush758/NodeJS-DevOps-Pipeline.git'
             }
         }
 
@@ -27,3 +27,17 @@ pipeline {
             }
         }
     }
+
+    post {
+        always {
+            // Cleanup actions
+            cleanWs()
+        }
+        success {
+            echo 'Pipeline completed successfully!'
+        }
+        failure {
+            echo 'Pipeline failed.'
+        }
+    }
+}
